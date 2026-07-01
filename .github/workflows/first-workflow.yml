@@ -1,20 +1,30 @@
 name: My First Workflow
 on: push
 jobs:
-    my_first_job:
+    build_job_1:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
               uses: actions/checkout@v7
+        
+            - name: Creating Dragon File
+              run: touch dragon.txt
 
-            - name: Generate ACII Art
-              run: |
-                ls -lrt
-                chmod +x ./generate-ascii.sh
-                ./generate-ascii.sh
+            - name: Installing cowsay
+              run: sudo apt install cowsay -y
 
-            - name: Welcome Message along with reademe.md
-              run: |
-                echo "You Made It!!"
-                ls
-                cat README.md
+            - name: Adding Dragon
+              run: cowsay -f dragon "Build Successful!" >> dragon.txt
+        
+    test_job_2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checking Dragon File
+              run: grep -i "dragon" dragon.txt
+
+    deploy_job_3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Printing Dragon
+              run: cat dragon.txt
+            
