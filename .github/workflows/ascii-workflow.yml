@@ -1,0 +1,16 @@
+name: ASCII Art
+on: push
+jobs:
+    generate_ascii_art:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Installing Package
+            run: sudo apt install cowsay -y
+            - name: Create a file 
+            run: touch cow.txt
+            - name: List directory
+            run: ls -lt
+            - name: Generate art
+            run: cowsay -f tux "Hello from Linux!" >> cow.txt
+            - name: Verification
+            run: ls -lt
