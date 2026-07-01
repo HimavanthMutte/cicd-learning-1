@@ -9,6 +9,7 @@ jobs:
 
             - name: Generate ACII Art
               run: |
+                ls -lrt
                 chmod +x ./generate-ascii.sh
                 ./generate-ascii.sh
 
