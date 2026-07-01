@@ -7,11 +7,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v7
               
-            - name: Welcome Message
-              run: echo "You Made It!!"
-            
-            - name: List Files
-              run: ls
-
-            - name: Reading ReadMe.md
-              run: cat README.md
+            - name: Welcome Message along with reademe.md
+              run: |
+              echo "You Made It!!"
+              ls
+              cat README.md
