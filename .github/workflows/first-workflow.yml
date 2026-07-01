@@ -15,10 +15,22 @@ jobs:
 
             - name: Adding Dragon
               run: cowsay -f dragon "Build Successful!" >> dragon.txt
+
+            - name: Uploading Dragon text Artifact
+              uses: actions/upload-artifact@v7
+              with:
+                name: Dragon
+                path: ./dragon.txt
+
     test_job_2:
         needs: build_job_1
         runs-on: ubuntu-latest
         steps:
+            - name: Getting Artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: Dragon
+
             - name: Checking Dragon File
               run: grep -i "dragon" dragon.txt
 
@@ -26,6 +38,11 @@ jobs:
         needs: test_job_2
         runs-on: ubuntu-latest
         steps:
+            - name: Getting Artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: Dragon
+                
             - name: Printing Dragon
               run: cat dragon.txt
             
