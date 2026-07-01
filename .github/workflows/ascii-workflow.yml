@@ -12,5 +12,7 @@ jobs:
               run: ls -lt
             - name: Generate art
               run: cowsay -f tux "Hello from Linux!" >> cow.txt
+            - name: View Art
+              run: cat cow.txt
             - name: Verification
               run: ls -lt
