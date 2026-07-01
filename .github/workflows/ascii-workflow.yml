@@ -5,12 +5,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Installing Package
-            run: sudo apt install cowsay -y
+              run: sudo apt install cowsay -y
             - name: Create a file 
-            run: touch cow.txt
+              run: touch cow.txt
             - name: List directory
-            run: ls -lt
+              run: ls -lt
             - name: Generate art
-            run: cowsay -f tux "Hello from Linux!" >> cow.txt
+              run: cowsay -f tux "Hello from Linux!" >> cow.txt
             - name: Verification
-            run: ls -lt
+              run: ls -lt
