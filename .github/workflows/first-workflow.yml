@@ -4,45 +4,7 @@ jobs:
     build_job_1:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v7
-        
-            - name: Creating Dragon File
-              run: touch dragon.txt
-
-            - name: Installing cowsay
-              run: sudo apt install cowsay -y
-
-            - name: Adding Dragon
-              run: cowsay -f dragon "Build Successful!" >> dragon.txt
-
-            - name: Uploading Dragon text Artifact
-              uses: actions/upload-artifact@v7
-              with:
-                name: Dragon
-                path: ./dragon.txt
-
-    test_job_2:
-        needs: build_job_1
-        runs-on: ubuntu-latest
-        steps:
-            - name: Getting Artifact
-              uses: actions/download-artifact@v8
-              with:
-                name: Dragon
-
-            - name: Checking Dragon File
-              run: grep -i "Build" dragon.txt
-
-    deploy_job_3:
-        needs: test_job_2
-        runs-on: ubuntu-latest
-        steps:
-            - name: Getting Artifact
-              uses: actions/download-artifact@v8
-              with:
-                name: Dragon
-
-            - name: Printing Dragon
-              run: cat dragon.txt
+            - name: Useless Sleep
+              timeout-minutes: 1
+              run: sleep 600s
             
