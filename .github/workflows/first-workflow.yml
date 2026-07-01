@@ -2,9 +2,17 @@ name: My First Workflow
 on: push
 jobs:
     build_job_1:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Useless Sleep
-              timeout-minutes: 1
-              run: sleep 600s
+      runs-on: ubuntu-latest
+      steps:
+        - name: Docker Check
+          run: docker info
+        - name: Hello World
+          run: docker run hello-world
+    build_job_2:
+      runs-on: windows-latest
+      steps:
+        - name: Docker Check
+          run: docker info
+        - name: Hello World
+          run: docker run hello-world
             
