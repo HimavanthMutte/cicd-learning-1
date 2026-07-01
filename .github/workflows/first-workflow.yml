@@ -6,7 +6,10 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v7
-              
+            
+            - name: Generate ASCII Art
+              run: cowsay -f tux "Hello from Linux!"
+
             - name: Welcome Message along with reademe.md
               run: |
                 echo "You Made It!!"
