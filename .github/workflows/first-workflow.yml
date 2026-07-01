@@ -7,6 +7,9 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v7
 
+            - name: Generate ACII Art
+              run: ./generate-ascii.sh
+
             - name: Welcome Message along with reademe.md
               run: |
                 echo "You Made It!!"
